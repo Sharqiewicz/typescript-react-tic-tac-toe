@@ -8,7 +8,7 @@ interface SquareProps {
 export const Square: FunctionComponent<SquareProps> = ({value, onClick}) => {
 
       return (
-        <button className="square" onClick={onClick} >
+        <button className="square__container" onClick={onClick} >
           {value}
         </button>
       )

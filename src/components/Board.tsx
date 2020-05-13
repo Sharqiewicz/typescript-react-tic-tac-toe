@@ -11,7 +11,7 @@ export const Board: FunctionComponent<Props> = ({squares, handleClick}) => {
 
 
     return (
-    <div className="game__board">
+    <div className="board__container">
         { squares.map( (square: string, index:number): React.ReactNode => <Square value={square} onClick={ () => handleClick(index)} key={index}/>)}
     </div>
     );
