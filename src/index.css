@@ -40,3 +40,44 @@ code {
 .square__container:focus{
   outline: none;
 }
+
+body{
+  background-color: #222;
+  color: #eee;
+}
+
+.info__wrapper{
+  max-height: 20vh;
+  padding: 0 3vw;
+  text-align: center;
+}
+.moves__wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.moves__wrapper div button{
+  color: white;
+  background: #222;
+  border: 0px;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.moves__wrapper div button:focus{
+  outline: none;
+}
+.reset__game{
+  background: linear-gradient(#eee, #bbb);
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 20px 40px;
+}
+@media(max-width: 500px){
+  .reset__game{
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+  }
+}

@@ -52,21 +52,26 @@ export const Game: FunctionComponent = () => {
     history.map((_step, move) => {
       const destination = move ? `Go to move #${move}` : "Go to Start";
       return (
-        <li key={move}>
+        <div key={move}>
           <button onClick={() => jumpTo(move)}>{destination}</button>
-        </li>
+        </div>
       );
     });
+
+  const resetGame = () => {
+    setHistory( [ new Array<null|string>(9).fill(null) ] );
+    setStepNumber(0);
+    setXisNext(true);
+  }
 
   return (
     <>
       <Board squares={history[stepNumber]} handleClick={handleClick} />
-      <div className="info-wrapper">
-        <div>
+      <div className="info__wrapper">
           <h3>History</h3>
-          {renderMoves()}
-        </div>
+          <div className="moves__wrapper">{renderMoves()}</div>
         <h3>{winner ? "Winner: " + winner : "Next Player: " + xO}</h3>
+        <button className="reset__game" onClick={resetGame}>RESET GAME</button>
       </div>
     </>
   );
