@@ -2,7 +2,7 @@ import React, { useState, FunctionComponent } from "react";
 import { Board } from './Board';
 
 
-const calculateWinner = (squares: (number|null)[]) => {
+const calculateWinner = (squares: (string|null)[]) => {
   const lines: number[][] = [
     [0, 1, 2],
     [3, 4, 5],
@@ -23,17 +23,17 @@ const calculateWinner = (squares: (number|null)[]) => {
 }
 
 
-const Game = () => {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+export const Game: FunctionComponent = () => {
+  const [history, setHistory] = useState<(null|string)[][]>( [ new Array<null|string>(9).fill(null) ] );
   const [stepNumber, setStepNumber] = useState<number>(0);
-  const [xIsNext, setXisNext] = useState(true);
+  const [xIsNext, setXisNext] = useState<boolean>(true);
   const winner = calculateWinner(history[stepNumber]);
   const xO = xIsNext ? "X" : "O";
 
   const handleClick = (i: number) => {
     const historyPoint = history.slice(0, stepNumber + 1);
     const current = historyPoint[stepNumber];
-    const squares = [...current];
+    const squares: (string|null)[] = [...current];
     // return if won or occupied
     if (winner || squares[i]) return;
     // select square
@@ -71,5 +71,3 @@ const Game = () => {
     </>
   );
 };
-
-export default Game;

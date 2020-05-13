@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 
 interface SquareProps {
     onClick: () => void;
-    value?: string;
+    value: (string|null);
 }
 
 export const Square: FunctionComponent<SquareProps> = ({value, onClick}) => {
