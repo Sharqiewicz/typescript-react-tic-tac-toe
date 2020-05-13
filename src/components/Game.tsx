@@ -31,8 +31,8 @@ export const Game: FunctionComponent = () => {
   const xO = xIsNext ? "X" : "O";
 
   const handleClick = (i: number) => {
-    const historyPoint = history.slice(0, stepNumber + 1);
-    const current = historyPoint[stepNumber];
+    const historyPoint: (string|null)[][] = history.slice(0, stepNumber + 1);
+    const current: (string|null)[] = historyPoint[stepNumber];
     const squares: (string|null)[] = [...current];
     // return if won or occupied
     if (winner || squares[i]) return;
