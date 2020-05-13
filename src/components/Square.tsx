@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 
 interface SquareProps {
     onClick: () => void;
@@ -6,10 +6,6 @@ interface SquareProps {
 }
 
 export const Square: FunctionComponent<SquareProps> = ({value, onClick}) => {
-
-  const [count, setCount] = useState<number | null>(5);
-      setCount(null);
-      setCount(12);
 
       return (
         <button className="square" onClick={onClick} >

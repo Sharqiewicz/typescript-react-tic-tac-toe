@@ -1,9 +1,15 @@
-import React from 'react';
-import {Square} from './Square';
+import React, {FunctionComponent} from 'react';
+import { Square } from './Square';
 
-function Board({squares, handleClick}){
+interface Props{
+  squares: string[];
+  handleClick: (i: number) => void;
+}
 
-    function renderSquare(i) {
+
+export const Board: FunctionComponent<Props> = ({squares, handleClick}) => {
+
+    function renderSquare(i:number) {
       return <Square value={squares[i]} onClick={ () => handleClick(i)} />
     }
 
