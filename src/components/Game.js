@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from './Board.tsx';
+import { Board } from './Board';
 
 const calculateWinner = (squares) => {
   console.log(squares)
