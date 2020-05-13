@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, FunctionComponent } from "react";
 import { Board } from './Board';
 
-const calculateWinner = (squares) => {
-  const lines = [
+
+const calculateWinner = (squares: (number|null)[]) => {
+  const lines: number[][] = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -24,12 +25,12 @@ const calculateWinner = (squares) => {
 
 const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [stepNumber, setStepNumber] = useState(0);
+  const [stepNumber, setStepNumber] = useState<number>(0);
   const [xIsNext, setXisNext] = useState(true);
   const winner = calculateWinner(history[stepNumber]);
   const xO = xIsNext ? "X" : "O";
 
-  const handleClick = (i) => {
+  const handleClick = (i: number) => {
     const historyPoint = history.slice(0, stepNumber + 1);
     const current = historyPoint[stepNumber];
     const squares = [...current];
@@ -42,7 +43,7 @@ const Game = () => {
     setXisNext(!xIsNext);
   };
 
-  const jumpTo = (step) => {
+  const jumpTo = (step: number) => {
     setStepNumber(step);
     setXisNext(step % 2 === 0);
   };
@@ -59,7 +60,6 @@ const Game = () => {
 
   return (
     <>
-      <h1>React Tic Tac Toe - With Hooks</h1>
       <Board squares={history[stepNumber]} handleClick={handleClick} />
       <div className="info-wrapper">
         <div>
